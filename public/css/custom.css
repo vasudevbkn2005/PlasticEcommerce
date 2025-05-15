@@ -1,0 +1,485 @@
+footer {
+    background-color: #343a40;
+}
+
+footer h5 {
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+}
+
+footer .fab {
+    font-size: 1.5rem;
+    transition: transform 0.3s ease;
+}
+
+footer .fab:hover {
+    transform: scale(1.2);
+}
+
+footer .input-group {
+    width: 100%;
+}
+
+footer .input-group input {
+    border-radius: 5px 0 0 5px;
+}
+
+footer .input-group button {
+    border-radius: 0 5px 5px 0;
+}
+
+footer .list-unstyled li {
+    margin-bottom: 10px;
+}
+
+/* Black & White Modern Theme */
+.navbar {
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.navbar .navbar-brand {
+    color: #000000;
+}
+
+.navbar .navbar-brand:hover {
+    color: #555555;
+}
+
+.navbar .nav-link,
+.navbar .btn-link {
+    color: #000000;
+    transition: color 0.3s ease;
+}
+
+.navbar .nav-link:hover,
+.navbar .btn-link:hover {
+    color: #555555;
+    text-decoration: none;
+}
+
+.btn-outline-dark {
+    border-color: #000000;
+    color: #000000;
+}
+
+.btn-outline-dark:hover {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+.badge.bg-dark {
+    background-color: #000000 !important;
+}
+
+.modal-content {
+    background-color: #ffffff;
+}
+
+.modal-header {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+.modal-title {
+    color: #ffffff;
+}
+
+/* Header strip style */
+.bg-light.py-2.border-bottom {
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.text-muted.small {
+    color: #333 !important;
+}
+
+/* Mobile Sidebar */
+@media (max-width: 991.98px) {
+    .navbar-collapse {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 250px;
+        height: 100vh;
+        background-color: #ffffff;
+        padding: 1rem;
+        transition: left 0.3s ease-in-out;
+        z-index: 1050;
+    }
+
+    .navbar-collapse.show {
+        left: 0;
+    }
+
+    .offcanvas-backdrop {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 1040;
+    }
+}
+
+/* Close Button for Mobile Menu */
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    color: #000;
+}
+
+.close-btn:hover {
+    color: #555;
+}
+
+/* Desktop Search Style - Black & White Theme */
+.input-group .form-control {
+    border: 1px solid #000;
+    background-color: #fff;
+    color: #000;
+    box-shadow: none;
+}
+
+.input-group .form-control::placeholder {
+    color: #555;
+}
+
+.input-group .btn {
+    border-color: #000;
+    color: #000;
+    background-color: #fff;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.input-group .btn:hover {
+    background-color: #000;
+    color: #fff;
+}
+
+/* Navigation Links - Black & White Theme */
+.nav-link {
+    color: #000;
+    font-weight: 500;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.nav-link::after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #000;
+    transition: width 0.3s;
+    margin: 0 auto;
+}
+
+.nav-link:hover {
+    color: #000;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* Detail Shipping - Black & White Theme */
+.detail-shipping {
+    background-color: #fff;
+    /* white background */
+    border-bottom: 1px solid #ccc;
+    /* soft grey border */
+    color: #000;
+    /* black text */
+}
+
+.detail-shipping i {
+    color: #000;
+    /* black icons */
+    font-size: 1rem;
+}
+
+.detail-shipping .small {
+    color: #000;
+    /* black text */
+    font-weight: 500;
+}
+
+/* Make the nav links more modern and visually appealing */
+.navbar-nav {
+    /* background-color: #333; */
+    /* Dark background for better contrast */
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.nav-item {
+    margin-bottom: 15px;
+    /* Spacing between links */
+}
+
+.nav-link {
+    font-size: 18px;
+    font-weight: 600;
+    color: #fff;
+    text-transform: uppercase;
+    /* All caps for a sleek look */
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    /* Smooth transition for hover effect */
+}
+
+/* Hover effects */
+.nav-link:hover,
+.nav-link:focus {
+    /* Tomato color on hover */
+    color: #fff;
+    box-shadow: 0 4px 10px rgba(255, 99, 71, 0.4);
+    /* Slight shadow for effect */
+}
+
+/* Responsive design for small devices */
+@media (max-width: 768px) {
+    .navbar-nav {
+        /* Keep the background dark for consistency */
+        padding: 15px;
+    }
+
+    .nav-link {
+        font-size: 16px;
+    }
+}
+
+.hover-bg:hover {
+    background-color: #e9ecef;
+    transition: background-color 0.2s ease;
+}
+
+.btn-lg:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.carousel-caption h1 {
+    font-weight: 700;
+    letter-spacing: 1px;
+    font-size: 2.5rem;
+}
+
+.carousel-caption p {
+    font-weight: 400;
+    font-size: 1.2rem;
+}
+
+.carousel-caption {
+    padding: 1rem;
+}
+
+.carousel-item img {
+    width: 100%;
+    height: auto;
+    max-height: 500px;
+    object-fit: cover;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    filter: invert(100%);
+}
+
+/* Mobile adjustments */
+@media (max-width: 576px) {
+    .carousel-caption h1 {
+        font-size: 1.5rem;
+    }
+
+    .carousel-caption p {
+        font-size: 1rem;
+    }
+
+    /* Increase mobile height */
+    #heroCarousel,
+    .carousel-item,
+    .carousel-item img {
+        min-height: 450px;
+        max-height: 450px;
+    }
+
+    .carousel-caption {
+        bottom: 2rem;
+    }
+}
+/* Show dropdown on hover for desktop */
+@media (min-width: 992px) {
+    .nav-item.dropdown:hover .dropdown-menu {
+        display: block;
+        margin-top: 0; /* Optional: align dropdown neatly */
+    }
+}
+
+/* Optional: Smooth transition and cleanup */
+.dropdown-menu {
+    transition: all 0.2s ease-in-out;
+}
+
+/* Optional: Add pointer on hover */
+.nav-link.dropdown-hover {
+    cursor: pointer;
+}
+/* Container grid layout */
+.category-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    max-width: 500px;
+    min-width: 300px;
+}
+
+/* Each item takes 20% width on large screens */
+.category-item {
+    flex: 0 0 calc(20% - 10px);
+    list-style: none;
+}
+
+/* Link styles */
+.category-link {
+    display: block;
+    padding: 10px;
+    background-color: #f8f9fa; /* Light gray */
+    color: #333;
+    text-align: center;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* Hover effect */
+.category-link:hover {
+    background-color: #0d6efd; /* Bootstrap primary blue */
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+/* Responsive for smaller screens */
+@media (max-width: 768px) {
+    .category-item {
+        flex: 0 0 calc(33.33% - 10px); /* 3 per row */
+    }
+}
+
+@media (max-width: 576px) {
+    .category-item {
+        flex: 0 0 calc(50% - 10px); /* 2 per row */
+    }
+}
+.category-grid-10 {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr); /* 10 items per row */
+    gap: 8px;
+    min-width: 600px;
+    padding: 5px;
+}
+
+.category-cell {
+    text-align: center;
+}
+
+.category-link {
+    display: block;
+    padding: 8px 6px;
+    background-color: #f8f9fa;
+    color: #333;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: 0.3s ease;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.category-link:hover {
+    background-color: #0d6efd;
+    color: white;
+    transform: scale(1.05);
+}
+.centered-dropdown {
+    left: 50% !important;
+    transform: translateX(-50%);
+}
+
+/* 10-column grid styling */
+.category-grid-10 {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    gap: 8px;
+    min-width: 600px;
+    padding: 5px;
+}
+
+.category-cell {
+    text-align: center;
+}
+
+.category-link {
+    display: block;
+    padding: 8px 6px;
+    background-color: #f8f9fa;
+    color: #333;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: 0.3s ease;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.category-link:hover {
+    background-color: #0d6efd;
+    color: white;
+    transform: scale(1.05);
+}
+.category-dropdown {
+    min-width: 600px; /* Adjust width as needed */
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columns like the screenshot */
+    gap: 1rem;
+}
+
+.category-cell {
+    text-align: left;
+}
+
+.category-link {
+    text-decoration: none;
+    color: #000;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.category-link:hover {
+    /* color: #dc3545; Bootstrap red or customize */
+}

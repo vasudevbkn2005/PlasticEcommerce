@@ -11,13 +11,13 @@
 </head>
 
 <body class="bg-gray-100 font-sans">
-    <div class="flex">
+    {{-- <div class="flex"> --}}
 
-        <div x-data="{ open: false }" class="flex h-screen">
+        <div x-data="{ open: false }">
             @livewire('admin-dashboard')
 
             @yield('content')
-      </div> 
+      {{-- </div>  --}}
 </body>
 
  </html>

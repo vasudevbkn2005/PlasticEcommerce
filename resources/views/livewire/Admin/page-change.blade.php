@@ -6,7 +6,7 @@
     @elseif ($page === 'category')
         <livewire:Admin.category-page />
     @elseif ($page === 'product')
-        <h2 class="text-lg sm:text-xl font-semibold text-gray-700">📦 Product Listings</h2>
+        <livewire:Admin.product-page />
     @elseif ($page === 'orders')
         <h2 class="text-lg sm:text-xl font-semibold text-gray-700">🧾 Orders Overview</h2>
     @elseif ($page === 'users')

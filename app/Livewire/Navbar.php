@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use App\Models\Category;
 use Livewire\Component;
 
 class Navbar extends Component
@@ -23,8 +24,16 @@ class Navbar extends Component
         $this->dispatch('pageChanged', $page);
     }
 
+
+    public function getCategoriesProperty()
+    {
+        return Category::all(); // Fetch all categories
+    }
+
     public function render()
     {
-        return view('livewire.frontend.navbar');
+        return view('livewire.frontend.navbar', [
+            'categories' => $this->categories
+        ]);
     }
 }

@@ -47,6 +47,11 @@ class CategoryPage extends Component
             'name' => 'required|string',
             'cimage' => $this->category_id ? 'nullable|image' : 'required|image',
         ]);
+        $this->name = preg_replace_callback('/\b\w+\b/', function ($matches) {
+            // Capitalize only alphabetic characters, leave numbers or special cases unchanged
+            return ucfirst(strtolower($matches[0]));
+        }, $this->name);
+        // $this->name = ucfirst(strtolower($this->name));
 
         $category = $this->category_id ? Category::find($this->category_id) : null;
         $filename = $category?->cimage;
