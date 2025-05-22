@@ -23,6 +23,10 @@
                 class="block text-gray-700 px-3 py-2 rounded-lg hover:bg-indigo-100 hover:text-indigo-600 transition">📊
                 Dashboard</a>
 
+            <a href="#" wire:click="changePage('slide')" @click="open = false"
+                class="block text-gray-700 px-3 py-2 rounded-lg hover:bg-indigo-100 hover:text-indigo-600 transition">📊
+                Slider</a>
+
             <a href="#" wire:click="changePage('category')" @click="open = false"
                 class="block text-gray-700 px-3 py-2 rounded-lg hover:bg-indigo-100 hover:text-indigo-600 transition">🗂️
                 Category</a>
@@ -39,7 +43,7 @@
                 class="block text-gray-700 px-3 py-2 rounded-lg hover:bg-indigo-100 hover:text-indigo-600 transition">👥
                 Users</a>
 
-            <a href="/dashboard" @click="open = false"
+            <a href="/home" @click="open = false"
                 class="block text-gray-700 px-3 py-2 rounded-lg hover:bg-indigo-100 hover:text-indigo-600 transition">🏠
                 Home</a>
         </div>

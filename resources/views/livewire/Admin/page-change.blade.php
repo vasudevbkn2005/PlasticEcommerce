@@ -7,9 +7,11 @@
         <livewire:Admin.category-page />
     @elseif ($page === 'product')
         <livewire:Admin.product-page />
+    @elseif ($page === 'slide')
+        <livewire:Admin.slider-page />
     @elseif ($page === 'orders')
-        <h2 class="text-lg sm:text-xl font-semibold text-gray-700">🧾 Orders Overview</h2>
+        <livewire:Admin.order-page />
     @elseif ($page === 'users')
-        <h2 class="text-lg sm:text-xl font-semibold text-gray-700">👥 User Directory</h2>
+        <livewire:Admin.user-page />
     @endif
 </div>

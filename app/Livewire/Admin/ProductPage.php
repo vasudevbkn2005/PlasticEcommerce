@@ -86,7 +86,7 @@ class ProductPage extends Component
 
         if ($this->description) {
             $this->description = preg_replace_callback('/\b\w+\b/', function ($matches) {
-                return ucfirst(strtolower($matches[0]));
+                return ucfirst(strtoupper($matches[0]));
             }, $this->description);
         }
 
@@ -182,7 +182,7 @@ class ProductPage extends Component
                     'product_id' => $product->id,
                     'bulk_order_quantity' => $this->bulk_order_quantity,
                     'price' => $this->price,
-                    // 'user_id' => Auth::id(),
+                    'user_id' => Auth::id(),
                 ]);
             }
 

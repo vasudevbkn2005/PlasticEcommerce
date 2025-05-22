@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="..\css\custom.css">
 
     <!-- NAVBAR -->
-    <nav class="navbar navbar-expand-lg py-3 border-bottom">
+    <nav class="navbar navbar-expand-lg  border-bottom">
 
         {{-- MOBILE WORK  --}}
 
@@ -41,23 +41,22 @@
             </div>
 
             <!-- Mobile Cart & Auth -->
-            <div class="d-flex d-lg-none justify-content-center align-items-center gap-3 mb-3"
-                style="margin-left: 100px;">
+            <div class="d-flex d-lg-none justify-content-between align-items-center px-3 mb-3 w-100"
+                style="max-width: 100%;">
                 @auth
-                    <!-- Cart Button (Only visible after login) -->
-                    <button class="btn btn-outline-dark position-relative">
-                        <i class="bi bi-cart-fill fs-5"></i>
-                        {{-- <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-dark">
-                            0
-                        </span> --}}
-                    </button>
+                    <!-- Cart Button (Left) -->
+                    <a href="{{ route('cart.index') }}" class="position-relative">
+                        <i class="bi bi-cart-fill fs-5 text-dark"></i>
+                    </a>
 
-                    <!-- Mobile User Dropdown with Name (Compact) -->
-                    <x-dropdown align="right" width="48">
+                    <!-- User Dropdown (Center) -->
+                    <x-dropdown align="center" width="48">
                         <x-slot name="trigger">
-                            <button class="btn btn-light d-flex align-items-center shadow-sm border rounded-pill px-3 py-1">
-                                <span
-                                    class="me-2 text-dark fw-semibold">{{ \Illuminate\Support\Str::limit(Auth::user()->name, 10) }}</span>
+                            <button
+                                class="btn btn-light d-flex align-items-center shadow-sm border rounded-pill px-3 py-1 mx-auto">
+                                <span class="me-2 text-dark fw-semibold">
+                                    {{ \Illuminate\Support\Str::limit(Auth::user()->name, 10) }}
+                                </span>
                                 <svg class="fill-current text-secondary" width="16" height="16" viewBox="0 0 20 20">
                                     <path fill-rule="evenodd"
                                         d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
@@ -70,20 +69,17 @@
                             <div class="dropdown-menu show p-2 shadow border-0 rounded-3 mt-2"
                                 style="min-width: 10rem; background-color: #f8f9fa;">
                                 @if (Auth::check() && Auth::user()->role === '1')
-                                    <!-- Admin Dashboard -->
                                     <a href="/admin-dashboard"
                                         class="dropdown-item d-flex align-items-center text-dark fw-medium px-3 py-2 rounded-2 hover-bg">
                                         <i class="bi bi-speedometer2 me-2"></i> Admin Dashboard
                                     </a>
                                 @endif
 
-                                <!-- Profile -->
                                 <x-dropdown-link :href="route('profile.edit')"
                                     class="dropdown-item d-flex align-items-center text-dark fw-medium px-3 py-2 rounded-2 hover-bg">
                                     <i class="bi bi-person me-2"></i> {{ __('Profile') }}
                                 </x-dropdown-link>
 
-                                <!-- Logout -->
                                 <form method="POST" action="{{ route('logout') }}">
                                     @csrf
                                     <x-dropdown-link :href="route('logout')"
@@ -95,6 +91,11 @@
                             </div>
                         </x-slot>
                     </x-dropdown>
+
+                    <!-- My Orders Button (Right) -->
+                    <a href="/my-orders" class="position-relative">
+                        <i class="bi bi-bag-check-fill fs-5 text-dark"></i>
+                    </a>
                 @else
                     <!-- Mobile Login Icon -->
                     <a href="/login" class="btn btn-outline-secondary d-flex align-items-center" title="Login"
@@ -147,10 +148,9 @@
                 <!-- Desktop Search and Links -->
                 <div class="d-none d-lg-flex flex-column align-items-center w-50 mx-auto">
                     <!-- NAVIGATION MENU -->
-                    <ul class="nav justify-content-center mb-3">
+                    <ul class="nav justify-content-center">
                         <li class="nav-item">
-                            <a class="nav-link text-dark fw-semibold px-2" href="#" id="homeLink"
-                                wire:click.prevent="changePage('home')">Home</a>
+                            <a class="nav-link text-dark fw-semibold px-2" href="/">Home</a>
                         </li>
 
                         <li class="nav-item dropdown position-relative text-center">
@@ -167,17 +167,18 @@
                                 <div class="category-grid">
                                     @foreach ($categories as $category)
                                         <div class="category-cell">
-                                            <a class="category-link" href="#">{{ $category->name }}</a>
+                                            <a class="category-link"
+                                                href="#category-{{ $category->id }}">{{ $category->name }}</a>
                                         </div>
                                     @endforeach
                                 </div>
                             </ul>
                         </li>
 
-                        <li class="nav-item">
+                        {{-- <li class="nav-item">
                             <a class="nav-link text-dark fw-semibold px-2" href="#" id="productsLink"
                                 wire:click.prevent="changePage('products')">Products</a>
-                        </li>
+                        </li> --}}
 
                         <script>
                             document.addEventListener('DOMContentLoaded', function() {
@@ -236,21 +237,22 @@
                         </script>
 
                         <li class="nav-item">
-                            <a class="nav-link text-dark fw-semibold px-2" href="#" id="aboutLink"
-                                wire:click.prevent="changePage('about')">About</a>
+                            <a class="nav-link text-dark fw-semibold px-2" href="/about">About</a>
                         </li>
 
+
                         <li class="nav-item">
-                            <a class="nav-link text-dark fw-semibold px-2" href="#" id="contactLink"
-                                wire:click.prevent="changePage('contact')">Contact</a>
+                            <a class="nav-link text-dark fw-semibold px-2" href="/contact">Contact</a>
                         </li>
+
                     </ul>
 
                     <!-- SEARCH BAR BELOW NAVIGATION -->
-                    <form class="w-100" id="mainSearchForm">
+                    <form action="{{ route('search.results') }}" class="w-100" id="mainSearchForm" method="GET">
                         <div class="input-group">
-                            <input type="search" class="form-control border-dark text-dark bg-white"
-                                placeholder="Search for products..." aria-label="Search">
+                            <input type="search" name="query" class="form-control border-dark text-dark bg-white"
+                                placeholder="Search for products..." aria-label="Search"
+                                value="{{ request('query') }}">
                             <button class="btn btn-outline-dark" type="submit">
                                 <i class="bi bi-search"></i>
                             </button>
@@ -276,8 +278,86 @@
                 </script>
                 {{-- </div> --}}
 
+                {{-- <!-- Mobile Nav Links --> --}}
                 <!-- Mobile Nav Links -->
                 <ul class="navbar-nav d-lg-none ms-auto px-3">
+                    <!-- Home Link -->
+                    <li class="nav-item mb-3">
+                        <a class="nav-link d-flex align-items-center px-3 py-2 rounded shadow-sm bg-light text-dark fw-semibold hover-bg"
+                            href="/">
+                            <i class="fas fa-home me-2"></i> Home
+                        </a>
+                    </li>
+
+                    <!-- Category Dropdown -->
+                    <li class="nav-item dropdown position-relative">
+                        <a class="nav-link d-flex align-items-center px-3 py-2 rounded shadow-sm bg-light text-dark fw-semibold hover-bg"
+                            href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false" id="mobileHomeLink">
+                            <i class="fas fa-th-large me-2"></i>
+                            Category
+                            <i class="bi bi-chevron-down ms-1"></i>
+                        </a>
+                        <!-- Dropdown Menu -->
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            @foreach ($categories as $category)
+                                <a class="dropdown-item" href="#category-{{ $category->id }}">
+                                    {{ $category->name }}
+                                </a>
+                            @endforeach
+                        </div>
+                    </li>
+
+                    <!-- About Link -->
+                    <li class="nav-item mb-3">
+                        <a class="nav-link d-flex align-items-center px-3 py-2 rounded shadow-sm bg-light text-dark fw-semibold hover-bg"
+                            href="/about">
+                            <i class="fas fa-info-circle me-2"></i> About
+                        </a>
+                    </li>
+
+                    <!-- Contact Link -->
+                    <li class="nav-item mb-3">
+                        <a class="nav-link d-flex align-items-center px-3 py-2 rounded shadow-sm bg-light text-dark fw-semibold hover-bg"
+                            href="/contact">
+                            <i class="fas fa-envelope me-2"></i> Contact
+                        </a>
+                    </li>
+                </ul>
+
+                <script>
+                    document.addEventListener('DOMContentLoaded', function() {
+                        const mobileLinks = [{
+                                id: 'mobileHomeLink',
+                                page: 'home'
+                            },
+                            {
+                                id: 'mobileAboutLink',
+                                page: 'about'
+                            },
+                            {
+                                id: 'mobileContactLink',
+                                page: 'contact'
+                            }
+                        ];
+
+                        mobileLinks.forEach(link => {
+                            const el = document.getElementById(link.id);
+                            if (el) {
+                                el.addEventListener('click', function(e) {
+                                    e.preventDefault();
+                                    const currentURL = window.location.href;
+                                    if (currentURL.includes('/product') || currentURL.includes('/view')) {
+                                        window.history.back();
+                                    } else {
+                                        @this.changePage(link.page);
+                                    }
+                                });
+                            }
+                        });
+                    });
+                </script>
+                {{-- <ul class="navbar-nav d-lg-none ms-auto px-3">
                     <!-- Home Link -->
                     <li class="nav-item mb-3">
                         <a class="nav-link d-flex align-items-center px-3 py-2 rounded shadow-sm bg-light text-dark fw-semibold hover-bg"
@@ -298,8 +378,7 @@
                         <!-- Dropdown Menu -->
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             @foreach ($categories as $category)
-                                <a class="dropdown-item" href="#"
-                                    wire:click.prevent="setCategory('{{ $category->id }}')">
+                                <a class="dropdown-item" href="#category-{{ $category->id }}">
                                     {{ $category->name }}
                                 </a>
                             @endforeach
@@ -307,14 +386,14 @@
                     </li>
 
                     <!-- Products Link -->
-                    <li class="nav-item mb-3">
+                    {{-- <li class="nav-item mb-3">
                         <a class="nav-link d-flex align-items-center px-3 py-2 rounded shadow-sm bg-light text-dark fw-semibold hover-bg"
                             href="#" wire:click.prevent="changePage('products')">
                             <i class="fas fa-cogs me-2"></i> Products
                         </a>
-                    </li>
+                    </li> --}}
 
-                    <!-- About Link -->
+                {{-- <!-- About Link -->
                     <li class="nav-item mb-3">
                         <a class="nav-link d-flex align-items-center px-3 py-2 rounded shadow-sm bg-light text-dark fw-semibold hover-bg"
                             href="#" wire:click.prevent="changePage('about')">
@@ -328,8 +407,8 @@
                             href="#" wire:click.prevent="changePage('contact')">
                             <i class="fas fa-envelope me-2"></i> Contact
                         </a>
-                    </li>
-                </ul>
+                    </li> --}}
+                {{-- </ul> --}}
             </div>
 
         </div>
@@ -343,9 +422,12 @@
                     <x-slot name="trigger">
                         <button
                             class="btn btn-light d-flex align-items-center shadow-sm border rounded-pill px-3 py-1 me-3">
-                            <span class="me-2 text-dark fw-semibold">{{ Auth::user()->name }}</span>
-                            <svg class="fill-current text-secondary" width="16" height="16"
-                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                            <span class="me-2 text-dark fw-semibold text-truncate d-inline-block"
+                                style="max-width: 120px;">
+                                {{ Auth::user()->name }}
+                            </span>
+                            <svg class="text-secondary" width="16" height="16" xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 20 20" fill="currentColor">
                                 <path fill-rule="evenodd"
                                     d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
                                     clip-rule="evenodd" />
@@ -380,13 +462,17 @@
                     </x-slot>
                 </x-dropdown>
                 <!-- Cart Button (Only after login) -->
-                <button class="btn btn-outline-dark position-relative me-3">
+                <a href="{{ route('cart.index') }}" class=" position-relative me-3">
                     <i class="bi bi-cart-fill me-1 fs-5"></i>
                     {{-- <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-dark"
                         id="cart-count">
                         {{ session('cart') ? count(session('cart')) : 0 }}
                     </span> --}}
-                </button>
+                </a>
+                <a href="/my-orders" class=" d-flex align-items-center gap-2 px-3 py-2 rounded-pill position-relative"
+                    style="margin-right: 20px">
+                    <i class="bi bi-bag-check-fill fs-5"></i>
+                </a>
             @else
                 <!-- Desktop Login Icon -->
                 <a href="/login" class="btn btn-outline-secondary me-2 d-flex align-items-center" title="Login">
@@ -402,6 +488,13 @@
             @endauth
         </div>
     </nav>
+    <style>
+        .btn-outline-dark:hover {
+            background-color: #212529;
+            color: #fff;
+            transition: all 0.3s ease;
+        }
+    </style>
 
 </div>
 

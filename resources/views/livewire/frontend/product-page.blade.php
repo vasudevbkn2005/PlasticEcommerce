@@ -105,13 +105,13 @@
                                 <div class="card h-100 product-card shadow-sm border-0">
                                     <div
                                         style="height: 150px; display: flex; align-items: center; justify-content: center; background: white; border-radius: 0.25rem;">
-                                        <img src="{{ $p->mimage ? asset('storage/' . $p->mimage) : 'https://dummyimage.com/450x300/dee2e6/6c757d.jpg' }}"
+                                        <img src="{{ $p->mimage ? asset('storage/' . $p->mimage) : 'https://dummyimage.com/400x400/dee2e6/6c757d.jpg' }}"
                                             alt="{{ $p->name }}"
                                             style="max-height: 100%; max-width: 100%; object-fit: contain;">
                                     </div>
                                     <div class="card-body text-center">
                                         <h5 class="card-title fw-semibold text-dark mb-2">
-                                            {{ $p->name ?? 'Fancy Product' }}</h5>
+                                            {{ $p->name ?? 'Plastic Product' }}</h5>
 
                                         @php
                                             $price = optional($p->prices->first());

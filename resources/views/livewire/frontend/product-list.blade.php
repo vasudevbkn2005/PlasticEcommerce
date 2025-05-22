@@ -1,6 +1,6 @@
 {{-- Navbar PAge Change KE LIye --}}
 
-<div class="content mt-5">
+<div>
     @if ($currentPage == 'home')
         {{-- <h1>Welcome to Home Page</h1> --}}
         <livewire:home-page />
@@ -9,11 +9,8 @@
     @elseif($currentPage == 'view')
         <livewire:product-view /> <!-- No need to pass any productId here -->
     @elseif($currentPage == 'about')
-        <h1>About Page</h1>
-    @elseif($currentPage == 'new')
-        <h1>New Arrivals</h1>
+        <livewire:product-about />
     @elseif($currentPage == 'contact')
-        <h1>Contact Us</h1>
+        <livewire:product-contact />
     @endif
 </div>
-
